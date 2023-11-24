@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        uid:
+        name: 名前
+        email: Eメール
+        password: パスワード
+        encrypted_password: 確認用パスワード
+        provider:

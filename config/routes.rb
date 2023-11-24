@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'menus/index'
+
   devise_scope :user do
     root 'static_pages#top'
   end
