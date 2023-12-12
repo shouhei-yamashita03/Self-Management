@@ -8,5 +8,5 @@ ja:
         name: 名前
         email: Eメール
         password: パスワード
-        encrypted_password: 確認用パスワード
+        password_confirmation: パスワード(確認)
         provider:

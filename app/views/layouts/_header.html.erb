@@ -5,7 +5,12 @@
       <ul class="nav navbar-nav navbar-right">
         
         <% if user_signed_in? %>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "自己管理", "#" %></li>
+          <li><%= link_to "ToDo管理", "#" %></li>
+          <li><%= link_to "タスク管理", "#" %></li>
+          <li><%= link_to "評価フィードバック", "#" %></li>
+          <li><%= link_to "資料URL", "#" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Top", root_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
