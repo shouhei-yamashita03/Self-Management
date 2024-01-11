@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class MenusControllerTest < ActionDispatch::IntegrationTest
+class HomesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get menus_index_url
+    get homes_index_url
     assert_response :success
   end
 

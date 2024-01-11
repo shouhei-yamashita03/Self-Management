@@ -5,16 +5,26 @@
       <ul class="nav navbar-nav navbar-right">
         
         <% if user_signed_in? %>
-          <li><%= link_to "自己管理", "#" %></li>
-          <li><%= link_to "ToDo管理", "#" %></li>
-          <li><%= link_to "タスク管理", "#" %></li>
-          <li><%= link_to "評価フィードバック", "#" %></li>
-          <li><%= link_to "資料URL", "#" %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "タスク管理", task_path(current_user) %></li>
+          <li><%= link_to "健康管理", health_path(current_user) %></li>
+          <li><%= link_to "ストレス管理", stresss_path(current_user) %></li>
+          <li><%= link_to "PDCA報告", report_path(current_user) %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              アカウント <b class="caret"></b>
+            </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "ユーザー", "#" %></li>
+                <li><%= link_to "フィードバック", "#" %></li>
+                <li class="divider"></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              </ul>
+          </li>
         <% else %>
           <li><%= link_to "Top", root_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "アプリの使い方", instructions_path %></li>
         <% end %>
       </ul>
     </nav>
