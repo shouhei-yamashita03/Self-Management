@@ -4,9 +4,9 @@ ja:
       user: ユーザー
     attributes:
       user:
-        uid:
+        uid: UID
         name: 名前
-        email: Eメール
+        email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認)
-        provider:
+        provider: プロバイダー

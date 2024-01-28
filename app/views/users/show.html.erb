@@ -1,0 +1,10 @@
+<% provide(:title, "") %>
+<h1>プロフィール</h1>
+
+<p>ユーザー名</p>
+<%= @user.name %>
+<p>メールアドレス</p>
+<%= @user.email %><br>
+<%= link_to "編集", edit_user_registration_path, class: "btn btn-sm btn-success" %>
+<%= link_to "削除", user_registration_path, data: { confirm: "削除してもよろしいですか?" }, method: :delete, class: "btn btn-sm btn-danger" %>
+<%= link_to "ホームへ", homes_path, class: "btn btn-sm btn-info" %>
