@@ -1,0 +1,19 @@
+<% provide(:title, "タスク投稿") %>
+
+<h1>タスク投稿一覧</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+        <%= link_to "新しいタスクを追加", new_task_path, class: "btn btn-primary btn-form" %>
+        <%= month_calendar events: @tasks do |date, tasks| %>
+            <%= date.day %>
+            <% tasks.each do |task| %>
+                <div>
+                    <%= link_to task.task_title, task %><br>
+                </div>
+            <% end %>
+        <% end %>
+        <%= link_to "ホームへ", homes_path, class: "btn btn-info btn-form" %>
+    </div>
+</div>

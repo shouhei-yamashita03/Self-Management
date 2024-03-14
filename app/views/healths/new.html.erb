@@ -1,0 +1,43 @@
+<% provide(:title, "ヘルス作成") %>
+
+<h1>ヘルスの新規作成</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <%= form_for @health do |f| %>
+
+            <%= f.label :health_title, class: "label-form" %>
+            <%= f.text_field :health_title, class: "form-control" %>
+
+            <%= f.label :health_name, class: "label-form" %>
+            <%= f.text_field :health_name, class: "form-control" %>
+
+            <%= f.label :wake_up_time_at, class: "label-form" %>
+            <%= f.time_field :wake_up_time_at, class: "form-control" %>
+
+            <%= f.label :bedtime_at, class: "label-form" %>
+            <%= f.time_field :bedtime_at, class: "form-control" %>
+
+            <%= f.label :stature, class: "label-form" %>
+            <%= f.text_field :stature, class: "form-control" %>
+
+            <%= f.label :body_weight, class: "label-form" %>
+            <%= f.text_field :body_weight, class: "form-control" %>
+
+            <%= f.label :health_detail, class: "label-form" %>
+            <%= f.text_area :health_detail, class: "form-control" %>
+
+            <%= f.label :health_comment, class: "label-form" %>
+            <%= f.text_area :health_comment, class: "form-control" %><br>
+
+            <%= f.label :start_time, class: "label-form" %>
+            <%= f.datetime_select :start_time, class: "form-control" %><br>
+
+            <%= f.submit "新規登録", class: "btn btn-primary btn-form" %>
+
+            <%= link_to '戻る', healths_path, class: "btn btn-info btn-form" %>
+            <% end %>
+        </div>
+    </div>
+</div>

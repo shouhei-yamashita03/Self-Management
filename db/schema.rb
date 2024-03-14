@@ -10,7 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20231103092833) do
+ActiveRecord::Schema.define(version: 20240310000959) do
+
+  create_table "healths", force: :cascade do |t|
+    t.bigint "health_id"
+    t.string "health_title"
+    t.time "wake_up_time_at"
+    t.time "bedtime_at"
+    t.string "stature"
+    t.string "body_weight"
+    t.string "health_name"
+    t.text "health_detail"
+    t.text "health_comment"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_time"
+    t.index ["user_id", "created_at"], name: "index_healths_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_healths_on_user_id"
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.bigint "report_id"
+    t.string "report_title"
+    t.string "report_name"
+    t.text "report_detail"
+    t.text "report_comment"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_time"
+    t.index ["user_id", "created_at"], name: "index_reports_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "task_id"
+    t.string "task_title"
+    t.string "task_name"
+    t.text "task_detail"
+    t.text "task_comment"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_time"
+    t.index ["user_id", "created_at"], name: "index_tasks_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

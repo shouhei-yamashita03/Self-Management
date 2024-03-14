@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :tasks, dependent: :destroy
+  has_many :healths, dependent: :destroy
+  has_many :reports, dependent: :destroy
   # deviseのデフォルト機能が編集の情報入力にも適用されるのでcreatアクションのみにバリデーションが動作するように設定
   validates :password, presence: true, on: :create
   # Include default devise modules. Others available are:

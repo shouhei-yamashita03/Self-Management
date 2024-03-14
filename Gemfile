@@ -17,6 +17,7 @@ gem 'jbuilder',     '~> 2.5'
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'simple_calendar', '~> 2.0'
 
 group :development, :test do
   gem 'sqlite3'

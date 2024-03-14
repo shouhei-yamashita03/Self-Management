@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "omniauth_callbacks"
@@ -11,15 +12,9 @@ Rails.application.routes.draw do
   get "users" => redirect("/users/sign_up")
   get "/users/password" => redirect("/users/password/new")
 
-  # get 'instructions/index'
-  # get 'homes/index'
   resources :instructions, only: [:index]
-  resources :homes, except: [:new, :show]
-  resources :tasks, :healths, :stresss, :reports, except: [:new, :index]
-  # get 'tasks/show'
-  # get 'healths/show'
-  # get 'stresss/show'
-  # get 'reports/show'
+  resources :homes, only: [:index]
+  resources :tasks, :healths, :stresss, :reports, :feedbacks
 
   devise_scope :user do
     root 'static_pages#top'

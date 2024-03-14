@@ -1,0 +1,19 @@
+<% provide(:title, "ヘルス投稿") %>
+
+<h1>ヘルス投稿一覧</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+        <%= link_to "新しいヘルスを追加", new_health_path, class: "btn btn-primary btn-form" %>
+        <%= month_calendar events: @healths do |date, healths| %>
+            <%= date.day %>
+            <% healths.each do |health| %>
+                <div>
+                    <%= link_to health.health_title, health %><br>
+                </div>
+            <% end %>
+        <% end %>
+        <%= link_to "ホームへ", homes_path, class: "btn btn-info btn-form" %>
+    </div>
+</div>

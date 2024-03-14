@@ -1,4 +1,17 @@
-<% provide(:title, "") %>
+<% provide(:title, "ヘルス詳細") %>
 
-<h1>健康管理</h1>
-<li><%= link_to "ホーム", homes_path %></li>
+<h1>ヘルス詳細</h1>
+
+<p><strong>タイトル:</strong> <%= @health.health_title %></p>
+<p><strong>名前:</strong> <%= @health.health_name %></p>
+<p><strong>起床時間:</strong> <%= @health.wake_up_time_at %></p>
+<p><strong>就寝時間:</strong> <%= @health.bedtime_at %></p>
+<p><strong>身長:</strong> <%= @health.stature %></p>
+<p><strong>体重:</strong> <%= @health.body_weight %></p>
+<p><strong>詳細:</strong> <%= @health.health_detail %></p>
+<p><strong>コメント:</strong> <%= @health.health_comment %></p>
+<p><strong>開始日程:</strong> <%= @health.start_time %></p>
+
+<%= link_to '編集', edit_health_path(@health), class: "btn btn-sm btn-primary" %> |
+<%= link_to '削除', @health, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %> |
+<%= link_to '戻る', healths_path, class: "btn btn-sm btn-info" %>

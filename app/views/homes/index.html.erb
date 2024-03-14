@@ -1,50 +1,66 @@
-<% provide(:title, "") %>
-<div class="center">
-    <h1>今日1日のスケジュール</h1>
-    <table class="table table-bordered table-condensed table-striped table-hover" id="table-schedules">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>taskの今日1日のスケジュールの値</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>healthの今日1日のスケジュールの値</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>stressの今日1日のスケジュールの値</td>
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <h1>前日の反省</h1>
-    <table class="table table-bordered table-condensed table-striped table-hover" id="table-schedules">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>taskの前日の反省の値</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>healthの前日の反省の値</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>stressの前日の反省の値</td>
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <h1>全体のスケジュール</h1>
+<% provide(:title, "全投稿スケジュール一覧") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+        <h1>今日のスケジュール一覧</h1>
+        <table class="table table-bordered table-condensed table-striped table-hover" id="table-schedules">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <td>今日1日(◯/◯)のスケジュール</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>taskの今日1日のスケジュールの値</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>healthの今日1日のスケジュールの値</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <table class="table table-bordered table-condensed table-striped table-hover" id="table-schedules">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <td>前日(◯/◯)の反省(PDCA報告)</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>taskの前日の反省の値</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>healthの前日の反省の値</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <h2>全体のスケジュール</h2>
+        <%= link_to "タスク管理", tasks_path, class: "btn btn-info btn-form" %>||
+        <%= link_to "健康管理", healths_path, class: "btn btn-info btn-form" %>||
+        <%= link_to "PDCA報告", reports_path, class: "btn btn-info btn-form" %>
+        <%= month_calendar events: @tasks + @healths + @reports do |date, events| %>
+            <%= date.day %>
+            <% events.each do |event| %>
+                <div>
+                <% if event.is_a?(Task) %>
+                    <%= link_to event.task_title, event %>
+                <% elsif event.is_a?(Health) %>
+                    <%= link_to event.health_title, event %>
+                <% else %>
+                    <%= link_to event.report_title, event %>
+                <% end %>
+                </div>
+            <% end %>
+        <% end %>
+        </div>
+    </div>
 </div>
