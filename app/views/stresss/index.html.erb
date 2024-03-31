@@ -1,0 +1,83 @@
+<% provide(:title, "ストレス管理") %>
+
+<h1>ストレスチェックシート</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="text">
+                <p>各投稿のストレスチェックシートに答えることで<br>
+                何ができていないのか。何ができているのか。について自己管理できる。
+                </p>
+            </div>
+            
+            <div class="user-number">
+                <%= Date.today.strftime("%Y年%m月%d日") %><br>
+                <%= "ID: #{current_user.id}" %>
+                <%= "名前: #{current_user.name}" %>
+            </div>
+
+            <%= form_for :stress, local: true do |f| %>
+            
+            <div class="task-title">タスク項目</div>
+            <p>毎日継続して学習できているか？</p>
+            </*YesとNoの判定*/>
+            <%= f.collection_radio_buttons :task_response, { "Yes": true, "No": false }, :last, :first, selected: :true %>
+            <br>
+            <!-- Yesの理由 -->
+            <%= f.label :reason_for_yes, "Yesの理由", class: "label-form" %>
+            <%= f.text_field :reason_for_yes, class: "form-control" %>
+            <!-- Noの理由 -->
+            <%= f.label :reason_for_no, "Noの理由", class: "label-form" %>
+            <%= f.text_field :reason_for_no, class: "form-control" %>
+
+            <p>1日の学習時間は何時間ですか？</p>
+
+            <%= f.label :task_comment, "コメント", class: "label-form" %>
+            <%= f.text_field :task_comment, class: "form-control" %>
+
+            <p>計画して学習できているか？</p>
+
+            <%= f.collection_radio_buttons :task_response_plan, { "Yes": true, "No": false }, :last, :first, selected: true %>
+            <br>
+            <%= f.label :task_reason_for_yes, "Yesの理由", class: "label-form" %>
+            <%= f.text_field :task_reason_for_yes, class: "form-control" %>
+
+            <%= f.label :task_reason_for_no, "Noの理由", class: "label-form" %>
+            <%= f.text_field :task_reason_for_no, class: "form-control" %>
+
+            <div class="health-title">ヘルス項目</div>
+            <p>スケジュール通りに行動できているか？</p>
+
+            <%= f.collection_radio_buttons :stress_response, { "Yes": true, "No": false }, :last, :first, selected: :true %>
+            <br>
+            <!-- Yesの理由 -->
+            <%= f.label :stress_reason_for_yes, "Yesの理由", class: "label-form" %>
+            <%= f.text_field :stress_reason_for_yes, class: "form-control" %>
+            <!-- Noの理由 -->
+            <%= f.label :stress_reason_for_no, "Noの理由", class: "label-form" %>
+            <%= f.text_field :stress_reason_for_no, class: "form-control" %>
+
+            <p>睡眠時間は7～8時間取れているか？</p>
+
+            <%= f.collection_radio_buttons :stress_response_sleep, { "Yes": true, "No": false }, :last, :first, selected: :true %>
+            <br>
+            <%= f.label :stress_comment, "コメント", class: "label-form" %>
+            <%= f.text_field :stress_comment, class: "form-control" %>
+
+            <p>毎日、運動できているか？</p>
+
+            <%= f.collection_radio_buttons :stress_response_exercise, { "Yes": true, "No": false }, :last, :first, selected: :true %>
+            <br>
+            <!-- Yesの理由 -->
+            <%= f.label :stress_reason_yes, "Yesの理由", class: "label-form" %>
+            <%= f.text_field :stress_reason_yes, class: "form-control" %>
+            <!-- Noの理由 -->
+            <%= f.label :stress_reason_no, "Noの理由", class: "label-form" %>
+            <%= f.text_field :stress_reason_no, class: "form-control" %>
+            <br>
+            <%= f.submit "登録する", class: "btn btn-primary btn-form" %>
+            <% end %>
+            <%= link_to "ホームへ", homes_path, class: "btn btn-info btn-form" %>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,62 @@
-<% provide(:title, "") %>
+<% provide(:title, "ストレス詳細") %>
 
-<h1>ストレス管理</h1>
-<%= link_to "ホームへ", homes_path, class: "btn btn-sm btn-info" %>
+<h1>ストレスチェックシート詳細</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="user-number">
+                <%= Date.today.strftime("%Y年%m月%d日") %>に提出された回答
+                <%= "ID: #{current_user.id}" %>
+                <%= "名前: #{current_user.name}" %>
+            </div>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>項目</th>
+                    <th>回答</th>
+                    <th>コメント</th>
+                </tr>
+
+                <tr>
+                    <td>毎日継続して学習できているか？</td>
+                    <td><%= @stress.task_response ? "Yes" : "No" %></td>
+                    <td><%= @stress.task_response ? @stress.reason_for_yes : @stress.reason_for_no %></td>
+                </tr>
+
+                <tr>
+                    <td>1日の学習時間は何時間ですか？</td>
+                    <td><%= @stress.task_comment %></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>計画して学習できているか？</td>
+                    <td><%= @stress.task_response_plan ? "Yes" : "No" %></td>
+                    <td><%= @stress.task_response_plan ? @stress.task_reason_for_yes : @stress.task_reason_for_no %></td>
+                </tr>
+
+                <tr>
+                    <td>スケジュール通りに行動できているか？</td>
+                    <td><%= @stress.stress_response ? "Yes" : "No" %></td>
+                    <td><%= @stress.stress_response ? @stress.stress_reason_for_yes : @stress.stress_reason_for_no %></td>
+                </tr>
+
+                <tr>
+                    <td>睡眠時間は7～8時間取れているか？</td>
+                    <td><%= @stress.stress_response_sleep ? "Yes" : "No" %></td>
+                    <td><%= @stress.stress_comment %></td>
+                </tr>
+
+                <tr>
+                    <td>毎日、運動できているか？</td>
+                    <td><%= @stress.stress_response_exercise ? "Yes" : "No" %></td>
+                    <td><%= @stress.stress_response_exercise ? @stress.stress_reason_yes : @stress.stress_reason_no %></td>
+                </tr>
+            </table>
+
+            <%= link_to "編集する", edit_stresss_path(@stress), class: "btn btn-primary" %>
+            <%= link_to "削除", stresss_path(@stress), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+            <%= link_to "一覧に戻る", stresss_index_path, class: "btn btn-info" %>
+        </div>
+    </div>
+</div>

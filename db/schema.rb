@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240310000959) do
+ActiveRecord::Schema.define(version: 20240329030043) do
 
   create_table "healths", force: :cascade do |t|
     t.bigint "health_id"
@@ -49,6 +49,31 @@ ActiveRecord::Schema.define(version: 20240310000959) do
     t.datetime "start_time"
     t.index ["user_id", "created_at"], name: "index_reports_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
+  create_table "stresses", force: :cascade do |t|
+    t.integer "stress_id", limit: 8
+    t.text "stress_comment"
+    t.date "date_on"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "stress_response"
+    t.text "reason_for_yes"
+    t.text "reason_for_no"
+    t.boolean "task_response"
+    t.text "task_comment"
+    t.boolean "task_response_plan"
+    t.boolean "stress_response_sleep"
+    t.boolean "stress_response_exercise"
+    t.text "task_reason_for_yes"
+    t.text "task_reason_for_no"
+    t.text "stress_reason_for_yes"
+    t.text "stress_reason_for_no"
+    t.text "stress_reason_yes"
+    t.text "stress_reason_no"
+    t.index ["user_id", "created_at"], name: "index_stresses_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_stresses_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
