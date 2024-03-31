@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20240329030043) do
 
   create_table "healths", force: :cascade do |t|
-    t.bigint "health_id"
+    t.integer "health_id", limit: 8
     t.string "health_title"
     t.time "wake_up_time_at"
     t.time "bedtime_at"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20240329030043) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.bigint "task_id"
+    t.integer "task_id", limit: 8
     t.string "task_title"
     t.string "task_name"
     t.text "task_detail"
