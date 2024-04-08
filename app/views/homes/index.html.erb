@@ -8,18 +8,22 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <td>今日1日(◯/◯)のスケジュール</td>
+                    <td><%= Date.today.strftime("%Y年%m月%d日") %>のスケジュール</td>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>taskの今日1日のスケジュールの値</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>healthの今日1日のスケジュールの値</td>
-                </tr>
+                <% @today_tasks.each_with_index do |task, index| %>
+                    <tr>
+                        <th scope="row"><%= index + 1 %></th>
+                        <td><%= link_to task.task_detail, task_path(task) %></td>
+                    </tr>
+                <% end %>
+                <% @today_healths.each_with_index do |health, index| %>
+                    <tr>
+                        <th scope="row"><%= @today_tasks.size + index + 1 %></th>
+                        <td><%= link_to health.health_detail, health_path(health) %></td>
+                    </tr>
+                <% end %>
             </tbody>
         </table>
         <br>
@@ -27,18 +31,22 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <td>前日(◯/◯)の反省(PDCA報告)</td>
+                    <td><%= Date.yesterday.strftime("%Y年%m月%d日") %>の反省</td>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>taskの前日の反省の値</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>healthの前日の反省の値</td>
-                </tr>
+                <% @yesterday_tasks.each_with_index do |task, index| %>
+                    <tr>
+                        <th scope="row"><%= index + 1 %></th>
+                        <td><%= link_to task.task_comment, task_path(task) %></td>
+                    </tr>
+                <% end %>
+                <% @yesterday_healths.each_with_index do |health, index| %>
+                    <tr>
+                        <th scope="row"><%= @yesterday_tasks.size + index + 1 %></th>
+                        <td><%= link_to health.health_comment, health_path(health) %></td>
+                    </tr>
+                <% end %>
             </tbody>
         </table>
         <br>

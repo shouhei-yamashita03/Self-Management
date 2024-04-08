@@ -14,7 +14,7 @@
 
   .box2 {
     width: 350px;
-    height: 570px;
+    height: 600px;
     margin: 60px auto 0;
     border-radius: 4px;
     border: 1px #ddd solid;
@@ -22,7 +22,7 @@
 
   .box3 {
     width: 350px;
-    height: 420px;
+    height: 450px;
     margin: 60px auto 0;
     border-radius: 4px;
     border: 1px #ddd solid;
@@ -141,17 +141,19 @@
   }
 
   .error-box {
-    position: fixed;  /*要素の位置をページのビューポートに固定 */
+    position: fixed;
     top: 0;
     left: 0;
-    color: #cc0000; 
-    padding: 40px;
-    box-sizing: border-box;
+    width: 100%;
+    background-color: #dc3545; /* 赤色 */
+    color: #ffffff; /* 白色 */
+    border-radius: 5px;
+    margin-top: 35px;
+    border: 1px solid transparent
   }
 
   .error-box ul {
-    list-style-type: none; /* リストのマーカーを削除 */
-    padding: 0; /* リストの内側の余白を削除 */
+    list-style-type: none;
 }
 
 .error-box ul li:before {

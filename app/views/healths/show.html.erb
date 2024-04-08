@@ -2,15 +2,15 @@
 
 <h1>ヘルス詳細</h1>
 
-<p><strong>タイトル:</strong> <%= @health.health_title %></p>
-<p><strong>名前:</strong> <%= @health.health_name %></p>
-<p><strong>起床時間:</strong> <%= @health.wake_up_time_at %></p>
-<p><strong>就寝時間:</strong> <%= @health.bedtime_at %></p>
-<p><strong>身長:</strong> <%= @health.stature %></p>
-<p><strong>体重:</strong> <%= @health.body_weight %></p>
-<p><strong>詳細:</strong> <%= @health.health_detail %></p>
-<p><strong>コメント:</strong> <%= @health.health_comment %></p>
-<p><strong>開始日程:</strong> <%= @health.start_time %></p>
+<p><strong>【ヘルス】タイトル:</strong> <%= @health.health_title %></p>
+<p><strong>【ヘルス】名前:</strong> <%= @health.health_name %></p>
+<p><strong>【ヘルス】起床時間:</strong> <%= @health.wake_up_time_at.strftime("%H:%M") %></p>
+<p><strong>【ヘルス】就寝時間:</strong> <%= @health.bedtime_at.strftime("%H:%M") %></p>
+<p><strong>【ヘルス】身長:</strong> <%= @health.stature %></p>
+<p><strong>【ヘルス】体重:</strong> <%= @health.body_weight %></p>
+<p><strong>【ヘルス】詳細:</strong> <%= @health.health_detail %></p>
+<p><strong>【ヘルス】コメント:</strong> <%= @health.health_comment %></p>
+<p><strong>【ヘルス】日程:</strong> <%= @health.start_time %></p>
 
 <%= link_to '編集', edit_health_path(@health), class: "btn btn-sm btn-primary" %> |
 <%= link_to '削除', @health, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %> |

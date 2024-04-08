@@ -26,6 +26,7 @@ class HealthsController < ApplicationController
   end
 
   def destroy
+    @health = Health.find_by(id: params[:id])
     @health.destroy
     redirect_to healths_path, notice: 'ヘルスが正常に削除されました。'
   end

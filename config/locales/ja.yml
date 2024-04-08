@@ -2,6 +2,9 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      task:
+      health:
+      report:
     attributes:
       user:
         uid: UID
@@ -10,3 +13,25 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
         provider: プロバイダー
+      task:
+        task_title: 【タスク】タイトル
+        task_name: 【タスク】名前
+        task_detail: 【タスク】詳細
+        task_comment: 【タスク】コメント
+        start_time: 【タスク】日程
+      health:
+        health_title: 【ヘルス】タイトル
+        health_name: 【ヘルス】名前
+        wake_up_time_at: 【ヘルス】起床時間
+        bedtime_at: 【ヘルス】 就寝時間
+        stature: 【ヘルス】身長
+        body_weight: 【ヘルス】体重
+        health_detail: 【ヘルス】詳細
+        health_comment: 【ヘルス】コメント
+        start_time: 【ヘルス】日程
+      report:
+        report_title: 【PDCA】タイトル
+        report_name: 【PDCA】名前
+        report_detail: 【PDCA】詳細
+        report_comment: 【PDCA】コメント
+        start_time: 【PDCA】日程

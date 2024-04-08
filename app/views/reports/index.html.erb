@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-        <%= link_to "新しいタスクを追加", new_report_path, class: "btn btn-primary btn-form" %>
+        <%= link_to "新しいPDCAを追加", new_report_path, class: "btn btn-primary btn-form" %>
         <%= month_calendar events: @reports do |date, reports| %>
             <%= date.day %>
             <% reports.each do |report| %>

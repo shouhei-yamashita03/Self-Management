@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240329030043) do
+ActiveRecord::Schema.define(version: 20240405033026) do
 
   create_table "healths", force: :cascade do |t|
     t.integer "health_id", limit: 8
