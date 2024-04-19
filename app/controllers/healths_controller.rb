@@ -1,4 +1,5 @@
 class HealthsController < ApplicationController
+  before_action :set_health, only: [:show, :edit, :update]
 
   def index
     @healths = Health.all
@@ -9,15 +10,12 @@ class HealthsController < ApplicationController
   end
 
   def show
-    @health = Health.find(params[:id])
   end
 
   def edit
-    @health = Health.find(params[:id])
   end
 
   def update
-    @health = Health.find(params[:id])
     if @health.update(health_params)
       redirect_to healths_path, notice: 'ヘルスが正常に更新されました。'
     else
@@ -40,7 +38,13 @@ class HealthsController < ApplicationController
     end
   end
 
+  private
+
+  def set_health
+    @health = Health.find(params[:id])
+  end
+
   def health_params
-    params.require(:health).permit(:health_title, :health_name, :wake_up_time_at, :bedtime_at, :stature, :body_weight, :health_detail, :health_comment, :start_time).merge(user_id: current_user.id)
+    params.require(:health).permit(:health_title, :wake_up_time_at, :bedtime_at, :stature, :body_weight, :health_detail, :health_comment, :start_time).merge(user_id: current_user.id)
   end
 end

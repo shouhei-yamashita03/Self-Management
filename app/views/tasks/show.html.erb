@@ -1,13 +1,35 @@
 <% provide(:title, "タスク詳細") %>
 
-<h1>タスク詳細</h1>
-
-<p><strong>【タスク】タイトル:</strong> <%= @task.task_title %></p>
-<p><strong>【タスク】名前:</strong> <%= @task.task_name %></p>
-<p><strong>【タスク】詳細:</strong> <%= @task.task_detail %></p>
-<p><strong>【タスク】コメント:</strong> <%= @task.task_comment %></p>
-<p><strong>【タスク】日程:</strong> <%= @task.start_time %></p>
-
-<%= link_to '編集', edit_task_path(@task), class: "btn btn-sm btn-primary" %> |
-<%= link_to '削除', @task, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %> |
-<%= link_to '戻る', tasks_path, class: "btn btn-sm btn-info" %>
+<h1>タスク詳細一覧</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="user-number">
+                <%= Date.today.strftime("%Y年%m月%d日") %>に提出された回答
+                <%= "ID: #{current_user.id}" %>
+                <%= "名前: #{current_user.name}" %>
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <th class="header">タスクタイトル</th>
+                    <td><%= @task.task_title %></td>
+                </tr>
+                <tr>
+                    <th class="header">タスク詳細</th>
+                    <td><%= @task.task_detail %></td>
+                </tr>
+                <tr>
+                    <th class="header">その他</th>
+                    <td><%= @task.task_comment %></td>
+                </tr>
+                <tr>
+                    <th class="header">タスク日程</th>
+                    <td><%= @task.start_time %></td>
+                </tr>
+            </table>
+            <%= link_to '編集', edit_task_path(@task), class: "btn btn-sm btn-primary" %> |
+            <%= link_to '削除', @task, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %> |
+            <%= link_to '戻る', tasks_path, class: "btn btn-sm btn-info" %>
+        </div>
+    </div>
+</div>

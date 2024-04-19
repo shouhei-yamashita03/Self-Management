@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
-
+  before_action :set_report, only: [:show, :edit, :update]
+  
   def index
     @reports = Report.all
   end
@@ -9,15 +10,12 @@ class ReportsController < ApplicationController
   end
   
   def show
-    @report = Report.find(params[:id])
   end
 
   def edit
-    @report = Report.find(params[:id])
   end
 
   def update
-    @report = Report.find(params[:id])
     if @report.update(report_params)
       redirect_to reports_path, notice: 'PDCAが正常に更新されました。'
     else
@@ -26,6 +24,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
+    @report = Report.find_by(id: params[:id])
     @report.destroy
     redirect_to reports_path, notice: 'PDCAが正常に削除されました。'
   end
@@ -39,7 +38,13 @@ class ReportsController < ApplicationController
     end
   end
 
+  private
+
+  def set_report
+    @report = Report.find(params[:id])
+  end
+
   def report_params
-    params.require(:report).permit(:report_title, :report_name, :report_detail, :report_comment, :start_time).merge(user_id: current_user.id)
+    params.require(:report).permit(:report_title, :report_detail, :report_comment, :start_time).merge(user_id: current_user.id)
   end
 end

@@ -4,6 +4,7 @@
 }
 
 .text {
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -14,16 +15,19 @@
 .task-title {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight:bold;
 }
 
 .health-title {
-    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
     font-weight:bold;
 }
 
-p {
-    margin-top: 20px;
+.field p {
+    margin-top: 50px;
     margin-bottom: 18px;
+    font-weight: bold;
 }

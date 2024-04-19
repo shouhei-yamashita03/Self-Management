@@ -1,6 +1,6 @@
 <% provide(:title, "ストレス編集") %>
 
-<h1>ストレスチェックシートの編集</h1>
+<h1>ストレスチェックシート編集</h1>
 
 <div class="container">
     <div class="row">
@@ -16,15 +16,15 @@
                     <%= f.label :reason_for_no, "Noの理由" %>
                     <%= f.text_field :reason_for_no %>
                 </div>
-                </div>
+            </div>
 
-                <div class="field">
-                    <p>1日の学習時間は何時間ですか？</p>
-                    <%= f.label :task_comment, "コメント" %>
-                    <%= f.text_field :task_comment %>
-                </div>
+            <div class="field">
+                <p>1日の学習時間は何時間ですか？</p>
+                <%= f.label :task_comment, "コメント" %>
+                <%= f.text_field :task_comment %>
+            </div>
 
-                <div class="field">
+            <div class="field">
                 <p>計画して学習できているか？</p>
                 <%= f.collection_radio_buttons :task_response_plan, [[true, 'Yes'], [false, 'No']], :first, :last %>
                 <div class="reasons">
@@ -33,10 +33,10 @@
                     <%= f.label :task_reason_for_no, "Noの理由" %>
                     <%= f.text_field :task_reason_for_no %>
                 </div>
-                </div>
+            </div>
 
-                <div class="health-title">ヘルス項目</div>
-                <div class="field">
+            <div class="health-title">ヘルス項目</div>
+            <div class="field">
                 <p>スケジュール通りに行動できているか？</p>
                 <%= f.collection_radio_buttons :stress_response, [[true, 'Yes'], [false, 'No']], :first, :last %>
                 <div class="reasons">
@@ -45,16 +45,16 @@
                     <%= f.label :stress_reason_for_no, "Noの理由" %>
                     <%= f.text_field :stress_reason_for_no %>
                 </div>
-                </div>
+            </div>
 
-                <div class="field">
-                    <p>睡眠時間は7～8時間取れているか？</p>
-                    <%= f.collection_radio_buttons :stress_response_sleep, [[true, 'Yes'], [false, 'No']], :first, :last %>
-                    <%= f.label :stress_comment, "コメント" %>
-                    <%= f.text_field :stress_comment %>
-                </div>
+            <div class="field">
+                <p>睡眠時間は7～8時間取れているか？</p>
+                <%= f.collection_radio_buttons :stress_response_sleep, [[true, 'Yes'], [false, 'No']], :first, :last %>
+                <%= f.label :stress_comment, "コメント" %>
+                <%= f.text_field :stress_comment %>
+            </div>
 
-                <div class="field">
+            <div class="field">
                 <p>毎日、運動できているか？</p>
                 <%= f.collection_radio_buttons :stress_response_exercise, [[true, 'Yes'], [false, 'No']], :first, :last %>
                 <div class="reasons">
@@ -63,9 +63,8 @@
                     <%= f.label :stress_reason_no, "Noの理由" %>
                     <%= f.text_field :stress_reason_no %>
                 </div>
-                </div>
-
-                <%= f.submit "更新する", class: "btn btn-primary" %>
+            </div>
+            <%= f.submit "更新する", class: "btn btn-primary" %>
             <% end %>
             <br><%= link_to "キャンセル", stresss_path(@stress), class: "btn btn-info" %>
         </div>

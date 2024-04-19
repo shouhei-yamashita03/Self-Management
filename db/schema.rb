@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240405033026) do
+ActiveRecord::Schema.define(version: 20240419085240) do
 
   create_table "healths", force: :cascade do |t|
     t.integer "health_id", limit: 8
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20240405033026) do
     t.time "bedtime_at"
     t.string "stature"
     t.string "body_weight"
-    t.string "health_name"
     t.text "health_detail"
     t.text "health_comment"
     t.integer "user_id"
@@ -38,9 +37,8 @@ ActiveRecord::Schema.define(version: 20240405033026) do
   end
 
   create_table "reports", force: :cascade do |t|
-    t.bigint "report_id"
+    t.integer "report_id", limit: 8
     t.string "report_title"
-    t.string "report_name"
     t.text "report_detail"
     t.text "report_comment"
     t.integer "user_id"
@@ -54,7 +52,6 @@ ActiveRecord::Schema.define(version: 20240405033026) do
   create_table "stresses", force: :cascade do |t|
     t.integer "stress_id", limit: 8
     t.text "stress_comment"
-    t.date "date_on"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,7 +76,6 @@ ActiveRecord::Schema.define(version: 20240405033026) do
   create_table "tasks", force: :cascade do |t|
     t.integer "task_id", limit: 8
     t.string "task_title"
-    t.string "task_name"
     t.text "task_detail"
     t.text "task_comment"
     t.integer "user_id"

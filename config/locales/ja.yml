@@ -14,24 +14,21 @@ ja:
         password_confirmation: パスワード(確認)
         provider: プロバイダー
       task:
-        task_title: 【タスク】タイトル
-        task_name: 【タスク】名前
-        task_detail: 【タスク】詳細
-        task_comment: 【タスク】コメント
-        start_time: 【タスク】日程
+        task_title: タスクタイトル
+        task_detail: タスク詳細
+        task_comment: その他
+        start_time: タスク日程
       health:
-        health_title: 【ヘルス】タイトル
-        health_name: 【ヘルス】名前
-        wake_up_time_at: 【ヘルス】起床時間
-        bedtime_at: 【ヘルス】 就寝時間
-        stature: 【ヘルス】身長
-        body_weight: 【ヘルス】体重
-        health_detail: 【ヘルス】詳細
-        health_comment: 【ヘルス】コメント
-        start_time: 【ヘルス】日程
+        health_title: ヘルスタイトル
+        wake_up_time_at: 起床時間
+        bedtime_at: 就寝時間
+        stature: 身長
+        body_weight: 体重
+        health_detail: ヘルス詳細
+        health_comment: その他
+        start_time: ヘルス日程
       report:
-        report_title: 【PDCA】タイトル
-        report_name: 【PDCA】名前
-        report_detail: 【PDCA】詳細
-        report_comment: 【PDCA】コメント
-        start_time: 【PDCA】日程
+        report_title: PDCAタイトル
+        report_detail: PDCA詳細
+        report_comment: その他
+        start_time: PDCA日程

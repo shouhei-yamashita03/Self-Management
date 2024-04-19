@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:show, :edit, :update]
 
   def index
     @tasks = Task.all
@@ -9,15 +10,12 @@ class TasksController < ApplicationController
   end
   
   def show
-    @task = Task.find(params[:id])
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
     if @task.update(task_params)
       redirect_to tasks_path, notice: 'タスクが正常に更新されました。'
     else
@@ -40,7 +38,13 @@ class TasksController < ApplicationController
     end
   end
 
+  private
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
+
   def task_params
-    params.require(:task).permit(:task_title, :task_name, :task_detail, :task_comment, :start_time).merge(user_id: current_user.id)
+    params.require(:task).permit(:task_title, :task_detail, :task_comment, :start_time).merge(user_id: current_user.id)
   end
 end

@@ -1,17 +1,51 @@
 <% provide(:title, "ヘルス詳細") %>
 
-<h1>ヘルス詳細</h1>
-
-<p><strong>【ヘルス】タイトル:</strong> <%= @health.health_title %></p>
-<p><strong>【ヘルス】名前:</strong> <%= @health.health_name %></p>
-<p><strong>【ヘルス】起床時間:</strong> <%= @health.wake_up_time_at.strftime("%H:%M") %></p>
-<p><strong>【ヘルス】就寝時間:</strong> <%= @health.bedtime_at.strftime("%H:%M") %></p>
-<p><strong>【ヘルス】身長:</strong> <%= @health.stature %></p>
-<p><strong>【ヘルス】体重:</strong> <%= @health.body_weight %></p>
-<p><strong>【ヘルス】詳細:</strong> <%= @health.health_detail %></p>
-<p><strong>【ヘルス】コメント:</strong> <%= @health.health_comment %></p>
-<p><strong>【ヘルス】日程:</strong> <%= @health.start_time %></p>
-
-<%= link_to '編集', edit_health_path(@health), class: "btn btn-sm btn-primary" %> |
-<%= link_to '削除', @health, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %> |
-<%= link_to '戻る', healths_path, class: "btn btn-sm btn-info" %>
+<h1>ヘルス詳細一覧</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="user-number">
+                <%= Date.today.strftime("%Y年%m月%d日") %>に提出された回答
+                <%= "ID: #{current_user.id}" %>
+                <%= "名前: #{current_user.name}" %>
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <th class="header">ヘルスタイトル</th>
+                    <td><%= @health.health_title %></td>
+                </tr>
+                <tr>
+                    <th class="header">起床時間</th>
+                    <td><%= @health.wake_up_time_at.strftime("%H:%M") %></td>
+                </tr>
+                <tr>
+                    <th class="header">就寝時間</th>
+                    <td><%= @health.bedtime_at.strftime("%H:%M") %></td>
+                </tr>
+                <tr>
+                    <th class="header">身長</th>
+                    <td><%= @health.stature %></td>
+                </tr>
+                <tr>
+                    <th class="header">体重</th>
+                    <td><%= @health.body_weight %></td>
+                </tr>
+                <tr>
+                    <th class="header">ヘルス詳細</th>
+                    <td><%= @health.health_detail %></td>
+                </tr>
+                <tr>
+                    <th class="header">その他</th>
+                    <td><%= @health.health_comment %></td>
+                </tr>
+                <tr>
+                    <th class="header">ヘルス日程</th>
+                    <td><%= @health.start_time %></td>
+                </tr>
+            </table>
+            <%= link_to '編集', edit_health_path(@health), class: "btn btn-sm btn-primary" %> |
+            <%= link_to '削除', @health, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %> |
+            <%= link_to '戻る', healths_path, class: "btn btn-sm btn-info" %>
+        </div>
+    </div>
+</div>
