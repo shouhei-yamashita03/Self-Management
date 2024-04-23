@@ -1,12 +1,24 @@
 .top {
     text-align: center;
+    background-image: url('top1.png');
+    background-size: cover;
+    position: relative;
+    padding-top: 50px;
 }
 
 .top h1 {
     margin-bottom: 10px;
     padding-top: 100px;
+    font-weight: bold;
+    font-size: 36px;
+    color: #333;
+    font-family: Arial, sans-serif;
 }
 
 .top p {
     margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #666;
+    font-family: Arial, sans-serif;
 }
